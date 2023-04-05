@@ -2,9 +2,12 @@
 
 // test the creation of new blog posts using factory
 test("can create blog posts using factory", function () {
+    // generate a post using factory
     $post = \App\Models\Post::factory()->create();
 
+    // check the database
     $this->assertDatabaseHas('posts', $post->toArray());
+    $this->assertDatabaseCount('posts',1);
 });
 
 // create new blog post
